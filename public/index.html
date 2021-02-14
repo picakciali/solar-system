@@ -141,10 +141,10 @@
         const loop = (timeStamp) => {
             ctx.clearRect(0, 0, W, H)
 
-            //çiz
+            //Çiz
             solarSystem.draw()
             
-            //fps
+            //Fps
             let time = (timeStamp - oldTime) / 1000
             oldTime =timeStamp
             fps = Math.floor(1 / time)
