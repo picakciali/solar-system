@@ -28,7 +28,7 @@
         }
         #fps{
             color :white;
-            font-size:10px;
+            font-size:12px;
             font-style: italic;
             margin-top: 10px;
         }
@@ -40,7 +40,7 @@
     <canvas id="canvas"></canvas>
 
     <div id="copyright"><a target="_blank" href="https://github.com/picakciali">Copyright Pck</a></div>
-    <div id="fps">60 fps</div>
+    <div id="fps">60:fps</div>
     
 
     <script>
@@ -148,7 +148,7 @@
             let time = (timeStamp - oldTime) / 1000
             oldTime =timeStamp
             fps = Math.floor(1 / time)
-            fpsDiv.innerText = fps + ' fps'
+            fpsDiv.innerText = fps + ':fps'
 
             window.requestAnimationFrame(loop)
         }
