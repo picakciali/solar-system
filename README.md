@@ -1,4 +1,4 @@
-# Html Canvas Solar System
+## Html Canvas Solar System
 
 Example of drawing solar system on javascript canvas.
 
