@@ -1,6 +1,5 @@
 # solar-system
 
-Example of drawing solar system on javascript canvas
+Example of drawing solar system on javascript canvas.
 
-
-## [Demo](https://pck-solarsytem.web.app/)
+### [Demo](https://pck-solarsytem.web.app/)
