@@ -3,7 +3,6 @@
  * ******************************************************************
  * Güneş Sistemimiz:)
  *********************************************************************/
-
 class Planet {
     constructor(ctx, p = {}) {
         this.ctx = ctx
@@ -30,10 +29,8 @@ class Planet {
     draw() {
         let x = this.r * Math.cos(this.theta) + this.centerX
         let y = this.r * Math.sin(this.theta) + this.centerY
-   
         this.ctx.beginPath()
         this.ctx.fillStyle = this.color
-
         this.ctx.arc(x, y,this.radius , 0, 2 * Math.PI)
         this.ctx.fill()
         this.ctx.strokeStyle = '#9e9e9e38'
@@ -41,7 +38,6 @@ class Planet {
         this.ctx.arc(this.centerX,this.centerY, this.r, 0, 2 * Math.PI)
         this.ctx.stroke()
         
-
         this.update()
     }
 
@@ -60,13 +56,12 @@ class SolarSytem {
         this.planets = []
 
     }
-
+    
     addPlanet(p) {
         const planet = new Planet(this.ctx, p)
         planet.setCenter(this.centerX, this.centerY)
         this.planets.push(planet)
     }
-
 
     draw() {
         this.sunDraw()
@@ -75,7 +70,6 @@ class SolarSytem {
             planet.draw()
         })
     }
-
 
     sunDraw() {
         const ctx = this.ctx
