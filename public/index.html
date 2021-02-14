@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güneş Sistemimiz</title>
+    <script src="./js/SolarSystem.js"></script>
+    <style>
+        body {
+            margin: 50px 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+            background-image: url(./asset/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #canvas {
+
+            width: 60%;
+            height: 50%;
+        
+        }
+        #copyright a{
+            color:#4caf50;
+            font-size: 15px;
+        }
+        #fps{
+            color :white;
+            font-size:10px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="copyright"><a target="_blank" href="https://github.com/picakciali">Copyright Pck</a></div>
+    <div id="fps">60 fps</div>
+    
+
+    <script>
+
+        const canvas = document.getElementById('canvas')
+        const ctx = canvas.getContext("2d")
+        const W = canvas.width
+        const H = canvas.height
+        const fpsDiv = document.getElementById('fps')
+        let solarSystem = new SolarSytem(W, H, ctx)
+        solarSystem.addPlanet(
+            {
+                'r': 15,
+                'sp': 0.03,
+                'name': 'merkur',
+                'color': '#593e21',
+                'radius': 1
+            }
+        )
+        solarSystem.addPlanet(
+            {
+                'r': 20,
+                'sp': 0.02,
+                'name': 'venus',
+                'color': '#686157',
+                'radius': 3
+            }
+        )
+        solarSystem.addPlanet(
+            {
+                'r': 25,
+                'sp': 0.01,
+                'name': 'dunya',
+                'color': '#013d55',
+                'radius': 4
+            }
+        )
+        solarSystem.addPlanet(
+            {
+                'r': 30,
+                'sp': 0.009,
+                'name': 'mars',
+                'color': '#97280c',
+                'radius': 4
+            }
+        )
+
+        solarSystem.addPlanet(
+            {
+                'r': 35,
+                'sp': 0.005,
+                'name': 'jupiter',
+                'color': '#7e4d24',
+                'radius': 5
+            }
+        )
+        solarSystem.addPlanet(
+            {
+                'r': 40,
+                'sp': 0.003,
+                'name': 'saturn',
+                'color': '#be946a',
+                'radius': 6
+            }
+        )
+
+        solarSystem.addPlanet(
+            {
+                'r': 45,
+                'sp': 0.002,
+                'name': 'uranus',
+                'color': '#0f65d8',
+                'radius': 5
+            }
+        )
+        solarSystem.addPlanet(
+            {
+                'r': 50,
+                'sp': 0.001,
+                'name': 'uranus',
+                'color': '#0f65d8',
+                'radius': 3
+            }
+        )
+        //
+        solarSystem.addPlanet(
+            {
+                'r': 55 ,
+                'sp': 0.0008,
+                'name': 'plato',
+                'color': '#5a8a98',
+                'radius': 1
+            }
+        )
+        let fps
+        let oldTime
+        
+        const loop = (timeStamp) => {
+            ctx.clearRect(0, 0, W, H)
+
+            //çiz
+            solarSystem.draw()
+            
+            //fps
+            let time = (timeStamp - oldTime) / 1000
+            oldTime =timeStamp
+            fps = Math.floor(1 / time)
+            fpsDiv.innerText = fps + ' fps'
+
+            window.requestAnimationFrame(loop)
+        }
+        loop()
+    </script>
+</body>
+</html> 
